@@ -14,5 +14,11 @@ export const HeaderStyle = styled.header`
         font-size: 1.6rem;
         font-weight: 600;
         border-radius: 0.5rem;
+        cursor: pointer;
+        
+        &:hover{
+            filter: brightness(0.9);
+        }
     }
+
 `
