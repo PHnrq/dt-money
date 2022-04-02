@@ -1,4 +1,4 @@
-import { HeaderStyle } from "./header"
+import { HeaderStyle } from "./style"
 import logo from "../../assets/logo.svg"
 
 export function Header (){

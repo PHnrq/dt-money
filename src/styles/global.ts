@@ -22,4 +22,8 @@ export const GlobalStyle = createGlobalStyle`
       /*Fonts*/
       font-family: 'Poppins', sans-serif;
   }
+
+  body{
+    background-color: var(--background);
+  }
 `
