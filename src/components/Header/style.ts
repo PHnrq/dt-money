@@ -5,7 +5,7 @@ export const HeaderStyle = styled.header`
     background-color: var(--blue);
     
     div{
-        max-width: 1120px;
+        max-width: 78%;
         display: flex;
         justify-content: space-between;
         padding: 3.6rem 0 13.6rem;

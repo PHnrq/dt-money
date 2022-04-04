@@ -11,7 +11,6 @@ export const IncomeCardStyle = styled.div`
     div{
         display: flex;
         justify-content: space-between;
-        gap: 20rem;
 
         p{
             font-size: 1.6rem;
