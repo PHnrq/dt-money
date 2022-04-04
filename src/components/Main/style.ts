@@ -1,7 +1,9 @@
 import  styled  from 'styled-components';
 
 export const MainStyle = styled.main`
-    margin-block-start: -6rem;
+    max-width: 1120px;
     display: flex;
     flex-direction: column;
+    margin: -6rem auto 0;
+    gap: 6.4rem;
 `
