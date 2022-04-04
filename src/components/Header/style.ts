@@ -1,11 +1,16 @@
 import styled from "styled-components";
 
 export const HeaderStyle = styled.header`
-    display: flex;
-    justify-content: space-around;
-    margin: 0 auto;
-    padding: 3.6rem 0 13.6rem;
+    
     background-color: var(--blue);
+    
+    div{
+        max-width: 1120px;
+        display: flex;
+        justify-content: space-between;
+        padding: 3.6rem 0 13.6rem;
+        margin: 0 auto;
+    }
 
     button{
         background-color: var(--blue-light);
