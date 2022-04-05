@@ -1,31 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import {App} from './App';
-import {createServer} from 'miragejs'
-import { api } from './services/api';
-
-createServer({
-  routes(){
-    this.namespace = 'api'
-
-    this.get('/transactions', () => {
-      return [
-        {
-          id: 1,
-          title: 'Transactions 1',
-          amount: 400,
-          type: 'deposit',
-          category: 'food',
-          createData: new Date()
-        }
-      ]
-    })
-  }
-})
-
-useEffect(() => {
-  api.get('transactions').then(data => console.log(data))
-}, [])
 
 ReactDOM.render(
   <React.StrictMode>
