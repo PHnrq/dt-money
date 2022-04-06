@@ -33,7 +33,7 @@ export const GlobalStyle = createGlobalStyle`
     max-width: 576px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: start;
     justify-content: center;
     padding: 6.4rem 4.8rem;
     background-color: var(--background);
