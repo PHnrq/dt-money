@@ -21,12 +21,12 @@ createServer({
       })
     }
   })
+  export function Table(){
+    
+    useEffect(() => {
+      api.get('transactions').then(data => console.log(data))
+    }, [])
   
-  useEffect(() => {
-    api.get('transactions').then(data => console.log(data))
-  }, [])
-
-export function Table(){
     return(
         <TableStyle>
             <thead>
