@@ -28,20 +28,27 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   .Modal {
-    position: absolute;
-    top: 40px;
-    left: 40px;
-    right: 40px;
-    bottom: 40px;
-    background-color: black;
+    background-color: white;
+    width: 100%;
+    max-width: 576px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 6.4rem 4.8rem;
+    background-color: var(--background);
+    border-radius: 0.5rem;
   }
-
+  
   .Overlay {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: white;
+    background-color: hsla(0, 0%, 0%, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 `
