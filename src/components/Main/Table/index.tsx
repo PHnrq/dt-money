@@ -1,26 +1,7 @@
 import { TableStyle } from "./style";
-import {createServer} from 'miragejs'
 import { api } from '../../../services/api'
 import { useEffect } from "react";
 
-createServer({
-    routes(){
-      this.namespace = 'api'
-  
-      this.get('/transactions', () => {
-        return [
-          {
-            id: 1,
-            title: 'Transactions 1',
-            amount: 400,
-            type: 'deposit',
-            category: 'food',
-            createData: new Date()
-          }
-        ]
-      })
-    }
-  })
   export function Table(){
     
     useEffect(() => {
