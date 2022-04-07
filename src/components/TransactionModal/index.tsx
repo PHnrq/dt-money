@@ -1,7 +1,8 @@
 import Modal from 'react-modal';
-import { Container, OptionButton } from './style';
+import { ButtonType, Container, OptionButton } from './style';
 import IncomeImg from '../../assets/income.svg';
 import OutcomeImg from '../../assets/outcome.svg';
+import { useState } from 'react';
 
 interface TransactionModalProps {
     isOpen: boolean,
@@ -9,6 +10,9 @@ interface TransactionModalProps {
 }
 
 export function TransactionModal({isOpen, onRequestClose}: TransactionModalProps){
+
+    const [type, setType] = useState('income')
+
     return(
         <Modal
             isOpen={isOpen}
@@ -25,19 +29,29 @@ export function TransactionModal({isOpen, onRequestClose}: TransactionModalProps
 
                 <OptionButton>
                     
-                    <button>
+                    <ButtonType 
+                        type='button'
+                        onClick={() => {setType('income')}}
+                        isActive={type === 'income'}
+                        activeColor='green'
+                    >
                         <img src={IncomeImg} alt="Flexa verde dentro de um circulo verde" />
                         <p>
                             Entrada
                         </p>
-                    </button>
+                    </ButtonType>
 
-                    <button>
+                    <ButtonType
+                        type='button'
+                        onClick={() => {setType('outcome')}}
+                        isActive= {type === 'outcome'}
+                        activeColor='red'
+                    >
                     <img src={OutcomeImg} alt="Flexa vermelha dentro de um circulo vermelha" />
                         <p>
                             Saída
                         </p>
-                    </button>
+                    </ButtonType>
                 </OptionButton>
 
                 <input type="text" placeholder="Categoria" />

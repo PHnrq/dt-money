@@ -42,25 +42,37 @@ export const OptionButton = styled.div`
     justify-content: center;
     gap: 0.8rem;
     margin-block-end: 1.6rem;
+    
+`
 
-    button{
-        display: flex;
-        gap: 1.6rem;
-        padding: 2.1rem 7rem;
-        border: .15px solid #969CB3;
-        border-radius: 0.5rem;
-        background-color: transparent;
-        cursor: pointer;
+interface ButtonTypeProps{
+    isActive: boolean,
+    activeColor: 'green' | 'red'
+}
 
-        p{
-            font-size: 1.6rem;
-            font-weight: 400;
-            color: var(--title);
-        }
+const colors = {
+    green: 'hsla(147, 80%, 36%, 0.1)',
+    red: 'hsla(350, 78%, 54%, 0.1)'
+}
 
-        img{
-            width: 24px;
-            height: 24px;
-        }
-    }
+export const ButtonType = styled.button<ButtonTypeProps>`
+
+    display: flex;
+    gap: 1.6rem;
+    padding: 2.1rem 7rem;
+    border: .15px solid #969CB3;
+    border-radius: 0.5rem;
+    background-color: ${(props) => props.isActive ? colors[props.activeColor] : 'transparent'};
+    cursor: pointer;
+
+      p{
+        font-size: 1.6rem;
+        font-weight: 400;
+        color: var(--title);
+      }
+
+      img{
+        width: 24px;
+        height: 24px;
+      }
 `
