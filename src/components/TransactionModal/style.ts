@@ -32,6 +32,13 @@ export const Container = styled.form`
         color: var(--shape);
         background-color: var(--green);
         width: 480px;
+        cursor: pointer;
+
+        transition: filter 0.2s;
+        
+        &:hover{
+            filter: brightness(1.1);
+        }
     }
 
 `
@@ -64,6 +71,12 @@ export const ButtonType = styled.button<ButtonTypeProps>`
     border-radius: 0.5rem;
     background-color: ${(props) => props.isActive ? colors[props.activeColor] : 'transparent'};
     cursor: pointer;
+
+    transition: border-color 0.2s;
+
+      &:hover{
+          border-color: #2b2f3b;
+      }
 
       p{
         font-size: 1.6rem;
