@@ -1,13 +1,23 @@
 import { TableStyle } from "./style";
 import { api } from '../../../services/api'
-import { useContext, useEffect, useState } from "react";
-import { TransactionContext } from "../../../TransactionContext";
+import { useEffect, useState } from "react";
 
-
+interface TransactionProps{
+    id: number,
+    title: string,
+    type: string,
+    category: string,
+    amount: number,
+    createdAt: string,
+}
 
 export function Table(){
-    
-    const data = useContext(TransactionContext);
+    const [transactions, setTransactions] = useState<TransactionProps[]>([]);
+
+    useEffect(() => {
+        api.get('transactions').then(response => {
+            setTransactions(response.data.transactions);
+        })}, []);
     
     return(
         <TableStyle>
