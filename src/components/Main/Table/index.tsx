@@ -1,13 +1,14 @@
 import { TableStyle } from "./style";
 import { api } from '../../../services/api'
-import { useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
+import { TransactionContext } from "../../../TransactionContext";
 
-  export function Table(){
+
+
+export function Table(){
     
-    useEffect(() => {
-      api.get('transactions').then(data => console.log(data))
-    }, [])
-  
+    const data = useContext(TransactionContext);
+    
     return(
         <TableStyle>
             <thead>
@@ -17,30 +18,18 @@ import { useEffect } from "react";
                 <th>Data</th>
             </thead>
             <tbody>
-                <tr>
-                    <td>Desenvolvimento de site</td>
-                    <td className="income">R$ 12.000,00</td>
-                    <td>Venda</td>
-                    <td>13/04/2021</td>
+                {transactions.map(transaction => (
+                <tr key={transaction.id}>
+                    <td>{transaction.title}</td>
+                    <td className={transaction.type}>{new Intl.NumberFormat('pt-BR', {
+                        style: 'currency',
+                        currency: 'BRL'
+                    }).format(transaction.amount)}</td>
+                    <td>{transaction.category}</td>
+                    <td>{new Intl.DateTimeFormat('pt-BR').format(new Date(transaction.createdAt))}</td>
                 </tr>
-                <tr>
-                    <td>Hamburguer</td>
-                    <td className="outcome">- R$ 59,00</td>
-                    <td>Alimentação</td>
-                    <td>10/04/2021</td>
-                </tr>
-                <tr>
-                    <td>Aluguel do apartamento</td>
-                    <td className="outcome">- R$ 1.200,00</td>
-                    <td>Casa</td>
-                    <td>27/03/2021</td>
-                </tr>
-                <tr>
-                    <td>Computador</td>
-                    <td className="income">R$ 5.400,00</td>
-                    <td>Venda</td>
-                    <td>15/03/2021</td>
-                </tr>
+                )
+                )}
             </tbody>
         </TableStyle>
     )
