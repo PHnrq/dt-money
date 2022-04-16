@@ -2,8 +2,9 @@ import Modal from 'react-modal';
 import { ButtonType, Container, OptionButton } from './style';
 import IncomeImg from '../../assets/income.svg';
 import OutcomeImg from '../../assets/outcome.svg';
-import { FormEvent, useState } from 'react';
+import { FormEvent, useState, useContext } from 'react';
 import { api } from '../../services/api';
+import { TransactionsContext } from '../../TransactionContext';
 
 interface TransactionModalProps {
     isOpen: boolean,
@@ -11,23 +12,30 @@ interface TransactionModalProps {
 }
 
 export function TransactionModal({isOpen, onRequestClose}: TransactionModalProps){
+
+    const {createTransactions} = useContext(TransactionsContext)
     
     const [type, setType] = useState('income');
     const [title, setTitle] = useState('');
     const [amount, setAmount] = useState(0);
     const [category, setCategory] = useState('');
     
-    const data =({
-        type,
-        title,
-        amount,
-        category,
-    })
-
-    function handleCreateNewTransaction(event: FormEvent){
+    async function handleCreateNewTransaction(event: FormEvent){
         event.preventDefault();
 
-        api.post('/transactions', data)
+        await createTransactions({
+            title,
+            amount,
+            type,
+            category,
+        })
+
+        setType('income');
+        setTitle('');
+        setAmount(0);
+        setCategory('');
+
+        onRequestClose();
     }
 
     return(

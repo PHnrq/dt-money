@@ -2,18 +2,10 @@ import { TableStyle } from "./style";
 import { useContext } from "react";
 import { TransactionsContext } from "../../../TransactionContext";
 
-interface TransactionProps{
-    id: number,
-    title: string,
-    type: string,
-    category: string,
-    amount: number,
-    createdAt: string,
-}
 
 export function Table(){
     
-    const transactions = useContext<TransactionProps[]>(TransactionsContext);
+    const {transactions} = useContext(TransactionsContext);
 
     return(
         <TableStyle>
