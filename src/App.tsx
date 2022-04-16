@@ -3,6 +3,7 @@ import { Header } from "./components/Header";
 import { Main } from "./components/Main";
 import { GlobalStyle } from "./styles/global";
 import { TransactionModal } from "./components/TransactionModal";
+import { TransactionsContext, TransactionsProvider } from "./TransactionContext";
 
 export function App() {
 
@@ -17,7 +18,7 @@ export function App() {
   }
 
   return (
-    <section>
+    <TransactionsProvider>
       <GlobalStyle/>
 
       <TransactionModal 
@@ -30,6 +31,6 @@ export function App() {
       />
 
       <Main/>
-    </section>
+    </TransactionsProvider>
   );
 }

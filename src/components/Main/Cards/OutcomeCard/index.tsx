@@ -1,7 +1,12 @@
 import { OutcomeCardStyle } from "./style";
 import OutcomeImg from "../../../../assets/outcome.svg"
+import { useContext } from "react";
+import { TransactionsContext } from "../../../../TransactionContext";
 
 export function OutcomeCard(){
+
+    const data = useContext(TransactionsContext);
+    
     return(
         <OutcomeCardStyle>
             <div>

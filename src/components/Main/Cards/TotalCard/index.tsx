@@ -1,7 +1,12 @@
 import { TotalCardStyle } from "./style";
 import TotalImg from "../../../../assets/total.svg"
+import { useContext } from "react";
+import { TransactionsContext } from "../../../../TransactionContext";
 
 export function TotalCard(){
+
+    const data = useContext(TransactionsContext);
+
     return(
         <TotalCardStyle>
             <div>

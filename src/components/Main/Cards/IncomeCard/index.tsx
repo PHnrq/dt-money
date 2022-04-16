@@ -1,7 +1,12 @@
 import { IncomeCardStyle } from "./style";
 import IncomeImg from "../../../../assets/income.svg"
+import { useContext } from "react";
+import { TransactionsContext } from "../../../../TransactionContext";
 
 export function IncomeCard(){
+
+    const data = useContext(TransactionsContext);
+
     return(
         <IncomeCardStyle>
             <div>
