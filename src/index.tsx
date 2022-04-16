@@ -21,6 +21,14 @@ createServer({
           amount: 1000,
           createdAt: new Date('2021-02-12 09:00:00'),
         },
+        {
+          id: 2,
+          title: 'Aluguel',
+          type: 'outcome',
+          category: 'Home',
+          amount: 350,
+          createdAt: new Date('2021-02-18 09:00:00'),
+        }
       ]
     })
   },
