@@ -5,7 +5,12 @@ import { TransactionsContext } from "../../../../TransactionContext";
 
 export function TotalCard(){
 
-    const data = useContext(TransactionsContext);
+    const {transactions} = useContext(TransactionsContext);
+
+    const total = transactions.reduce((acc, transaction) => {
+        transaction.type === "income" ? acc += transaction.amount : acc -= transaction.amount;
+        return acc;
+    }, 0);
 
     return(
         <TotalCardStyle>
@@ -13,7 +18,7 @@ export function TotalCard(){
                 <p>Total</p>
                 <img src={TotalImg} alt="Simbolo do Sifrão, um S com um risco no meio" />
             </div>
-            <strong>R$ 16.141,00</strong>
+            <strong>R$ {total}</strong>
         </TotalCardStyle>
     )
 }
